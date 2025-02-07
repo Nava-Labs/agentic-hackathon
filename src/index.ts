@@ -24,6 +24,7 @@ import {
 import { initializeDatabase } from "./database/index.ts";
 import alphaPlugin from "./plugins/rapid-twitter/index.ts";
 import coingeckoPlugin from "./plugins/coingecko/index.ts";
+import dexScreenerPlugin from "./plugins/plugin-dexscreener/index.ts";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -60,6 +61,7 @@ export function createAgent(
       bootstrapPlugin,
       alphaPlugin,
       coingeckoPlugin,
+      dexScreenerPlugin,
       // nodePlugn,
       // character.settings?.secrets?.WALLET_PUBLIC_KEY ? solanaPlugin : null,
     ].filter(Boolean),
