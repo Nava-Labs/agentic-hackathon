@@ -134,11 +134,11 @@ export const getDecision: Action = {
 
     const marketCap = priceData.usd_market_cap;
     const marketCapScore =
-      marketCap > 10_000_000_000 ? 100 : (marketCap / 10_000_000_000) * 100;
+      marketCap > 1_000_000_000 ? 100 : (marketCap / 1_000_000_000) * 100;
 
     const volume24h = priceData.usd_24h_vol;
     const liquidityScore =
-      volume24h > 100_000_000 ? 100 : (volume24h / 100_000_000) * 100;
+      volume24h > 10_000_000 ? 100 : (volume24h / 10_000_000) * 100;
 
     const totalScore =
       trendingScore * 0.5 +
@@ -218,10 +218,10 @@ export const getDecision: Action = {
     let reasoning: string;
     const personality = getPersonalityType(runtime);
 
-    if (totalScore >= 70) {
+    if (totalScore >= 50) {
       decision = "YES";
       reasoning = getRandomReasoning(positiveReasonings, personality);
-    } else if (totalScore < 70) {
+    } else if (totalScore < 50) {
       decision = "NO";
       reasoning = getRandomReasoning(negativeReasonings, personality);
     }
