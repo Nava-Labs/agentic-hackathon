@@ -106,6 +106,10 @@ export class LatestBoostedTokensAction implements Action {
             if (callback) {
                 await callback({
                     text: formattedOutput,
+                    content: {
+                        trending_tokens: tokens,
+                        timestamp: new Date().toISOString()
+                    },
                     action: this.name,
                 });
             }
