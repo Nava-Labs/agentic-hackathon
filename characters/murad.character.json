@@ -2,7 +2,7 @@
   "name": "Murad",
   "clients": [],
   "modelProvider": "openai",
-  "plugins": ["coingecko"],
+  "plugins": [],
   "settings": {
     "voice": {
       "model": "en_GB-male-medium"
