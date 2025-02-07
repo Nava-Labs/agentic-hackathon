@@ -113,8 +113,8 @@ export default {
       const config = await validateCoingeckoConfig(runtime);
       const { baseUrl, apiKey, headerKey } = getApiConfig(config);
 
-      elizaLogger.log("Fetching top gainers/losers data...");
-      elizaLogger.log("API request params:", {
+      console.log("Fetching top gainers/losers data...");
+      console.log("API request params:", {
         vs_currency: content.vs_currency,
         duration: content.duration,
         top_coins: content.top_coins

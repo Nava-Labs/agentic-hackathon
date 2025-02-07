@@ -78,7 +78,7 @@ export default {
     state: State,
     _options: { [key: string]: unknown },
     callback?: HandlerCallback
-  ): Promise<boolean> => {
+  ): Promise<any> => {
     elizaLogger.log("Starting CoinGecko GET_PRICE handler...");
 
     // Initialize or update state
@@ -228,37 +228,21 @@ export default {
       const responseText = formattedResponse.join('\n\n');
       elizaLogger.success("Price data retrieved successfully!");
 
-      if (callback) {
-        callback({
-          text: responseText,
-          content: {
-            prices: Object.entries(response.data).reduce((acc, [coinId, data]) => {
-              const coinPrices = currencies.reduce((currencyAcc, currency) => {
-                const currencyData = {
-                  price: data[currency],
-                  marketCap: data[`${currency}_market_cap`],
-                  volume24h: data[`${currency}_24h_vol`],
-                  change24h: data[`${currency}_24h_change`],
-                  lastUpdated: data.last_updated_at,
-                };
-                Object.assign(currencyAcc, { [currency]: currencyData });
-                return currencyAcc;
-              }, {});
-              Object.assign(acc, { [coinId]: coinPrices });
-              return acc;
-            }, {}),
-            params: {
-              currencies: currencies.map(c => c.toUpperCase()),
-              include_market_cap: content.include_market_cap,
-              include_24hr_vol: content.include_24hr_vol,
-              include_24hr_change: content.include_24hr_change,
-              include_last_updated_at: content.include_last_updated_at
-            }
-          }
-        });
-      }
-
-      return true;
+      return Object.entries(response.data).reduce((acc, [coinId, data]) => {
+        const coinPrices = currencies.reduce((currencyAcc, currency) => {
+          const currencyData = {
+            price: data[currency],
+            marketCap: data[`${currency}_market_cap`],
+            volume24h: data[`${currency}_24h_vol`],
+            change24h: data[`${currency}_24h_change`],
+            lastUpdated: data.last_updated_at,
+          };
+          Object.assign(currencyAcc, { [currency]: currencyData });
+          return currencyAcc;
+        }, {});
+        Object.assign(acc, { [coinId]: coinPrices });
+        return acc;
+      }, {});
     } catch (error) {
       elizaLogger.error("Error in GET_PRICE handler:", error);
 
