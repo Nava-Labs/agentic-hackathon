@@ -27,7 +27,7 @@ export const getTodaysAlpha: Action = {
     if (!rapidApiKey) {
       throw new Error("RAPID_API_KEY environment variable is not set");
     }
-    return true;
+    return false;
   },
   handler: async (
     runtime: IAgentRuntime,
