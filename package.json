@@ -26,6 +26,7 @@
     "@elizaos/plugin-starknet": "0.1.9",
     "@tavily/core": "0.0.2",
     "amqplib": "0.10.5",
+    "axios": "^1.7.9",
     "better-sqlite3": "11.5.0",
     "fs": "0.0.1-security",
     "net": "1.0.2",
@@ -42,7 +43,31 @@
   "pnpm": {
     "overrides": {
       "onnxruntime-node": "1.20.0"
-    }
+    },
+    "onlyBuiltDependencies": [
+      "@discordjs/opus",
+      "@elizaos/plugin-node",
+      "better-sqlite3",
+      "bigint-buffer",
+      "bufferutil",
+      "canvas",
+      "es5-ext",
+      "esbuild",
+      "ffmpeg-static",
+      "keccak",
+      "node-hid",
+      "node-llama-cpp",
+      "onnxruntime-node",
+      "protobufjs",
+      "puppeteer",
+      "secp256k1",
+      "sharp",
+      "sodium-native",
+      "usb",
+      "utf-8-validate",
+      "wtf_wikipedia",
+      "youtube-dl-exec"
+    ]
   },
   "devDependencies": {
     "pm2": "5.4.3",
