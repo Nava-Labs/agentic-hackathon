@@ -90,7 +90,7 @@ export class LatestBoostedTokensAction implements Action {
         try {
             // Using Codex SDK instead of DexScreener API
             const response = await codex.queries.listTopTokens({
-                networkFilter: [1, 56, 8453],
+                networkFilter: [1, 42161, 8453],
             });
 
             const tokens: TokenProfile[] = response.listTopTokens;
