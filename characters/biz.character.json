@@ -4,7 +4,7 @@
     "coingecko"
   ],
   "clients": [],
-  "modelProvider": "openai",
+  "modelProvider": "openrouter",
   "settings": {
     "secrets": {},
     "voice": {

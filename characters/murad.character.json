@@ -1,7 +1,7 @@
 {
   "name": "Murad",
   "clients": [],
-  "modelProvider": "openai",
+  "modelProvider": "openrouter",
   "plugins": [
     "coingecko"
   ],
